@@ -2976,3 +2976,88 @@ body {
 
 
 
+.home-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #111;
+}
+
+.home-sakura-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 30px;
+}
+
+.home-content h1 {
+  margin: 0 0 32px;
+
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -1px;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 3px 20px rgba(0, 0, 0, 0.55),
+    0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.home-start-button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+
+  background: rgba(255, 255, 255, 0.94);
+  color: #17131a;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.home-start-button:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+.app.home-active .sidebar,
+.app.home-active .header {
+  display: none;
+}
+
+.app.home-active .main-area {
+  margin-left: 0;
+  width: 100%;
+}
+
+.app.home-active .home-page {
+  min-height: 100vh;
+}

@@ -213,7 +213,8 @@ function App() {
     return initialTasks
   })
 
-  const [activePage, setActivePage] = useState('dashboard')
+  const [activePage, setActivePage] = useState('home')
+
 
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -572,6 +573,36 @@ useEffect(() => {
 
     showToast('Profile updated successfully.')
   }
+
+const renderHome = () => {
+  return (
+    <div className="home-page">
+      <img
+        src="/sakura_evening.webp"
+        alt="Sakura evening"
+        className="home-sakura-image"
+      />
+
+      <div className="home-content">
+        <h1>
+          Turn scattered thoughts
+          <br />
+          into steady progress.
+        </h1>
+
+        <button
+          className="home-start-button"
+          onClick={() => setActivePage('dashboard')}
+        >
+          Start
+        </button>
+      </div>
+    </div>
+  )
+}
+
+
+
 
     const renderDashboard = () => {
     return (
@@ -1169,23 +1200,29 @@ useEffect(() => {
 
 
     const renderCurrentPage = () => {
-    if (activePage === 'tasks') {
-      return renderTasks()
-    }
-
-    if (activePage === 'calendar') {
-      return renderCalendar()
-    }
-
-    if (activePage === 'planner') {
-      return renderPlanner()
-    }
-
-    return renderDashboard()
+  if (activePage === 'home') {
+    return renderHome()
   }
 
+  if (activePage === 'tasks') {
+    return renderTasks()
+  }
+
+  if (activePage === 'calendar') {
+    return renderCalendar()
+  }
+
+  if (activePage === 'planner') {
+    return renderPlanner()
+  }
+
+  return renderDashboard()
+}
+
+
   return (
-    <div className="app">
+    <div className={`app ${activePage === 'home' ? 'home-active' : ''}`}>
+
       <aside className="sidebar">
         <div className="brand">
           <div className="brand-icon">
